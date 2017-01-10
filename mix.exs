@@ -19,7 +19,7 @@ defmodule GigalixirGettingStarted.Mixfile do
   def application do
     [mod: {GigalixirGettingStarted, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :postgrex, :libcluster, :ssl, :runtime_tools]]
   end
 
   # Specifies which paths to compile per environment.
@@ -38,6 +38,7 @@ defmodule GigalixirGettingStarted.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
+     {:libcluster, "~> 2.0.3"},
      {:distillery, "~> 1.0.0"}]
   end
 
