@@ -55,7 +55,12 @@ config :logger, level: :info
 #
 #     config :gigalixir_getting_started, GigalixirGettingStarted.Endpoint, server: true
 #
+config :gigalixir_getting_started, GigalixirGettingStarted.Endpoint,
+  server: true,
+  secret_key_base: {:system, "SECRET_KEY_BASE"}
 
-# Finally import the config/prod.secret.exs
-# which should be versioned separately.
-# import_config "prod.secret.exs"
+# Configure your database
+config :gigalixir_getting_started, GigalixirGettingStarted.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  url: {:system, "DATABASE_URL"},
+  pool_size: 20
