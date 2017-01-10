@@ -64,3 +64,21 @@ config :gigalixir_getting_started, GigalixirGettingStarted.Repo,
   adapter: Ecto.Adapters.Postgres,
   url: {:system, "DATABASE_URL"},
   pool_size: 20
+
+config :libcluster,
+  topologies: [
+    k8s_example: [
+      strategy: Cluster.Strategy.Kubernetes,
+      config: [
+        # It would be nicer if this was {:system, "LIBCLUSTER_KUBERNETES_SELECTOR"} like the above
+        # but libcluster doesn't currently (1/10/17) support that. 
+        # We have two options:
+        # 1. Use System.get_env
+        #    We know the selector at build time and we don't need to change it at 
+        #    run time so System.get_env is sufficient for now.
+        # 2. Use REPLACE_OS_VARS
+        #    The config in this file gets turned into an erlang sys.config file.
+        #    Distillery's boot.eex will replace os vars in sys.config if 
+        #    REPLACE_OS_VARS=true.
+        kubernetes_selector: "${LIBCLUSTER_KUBERNETES_SELECTOR}",
+        kubernetes_node_basename: "${LIBCLUSTER_KUBERNETES_NODE_BASENAME}"]]]
