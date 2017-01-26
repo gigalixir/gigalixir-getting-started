@@ -1,5 +1,8 @@
 # GigalixirGettingStarted
 
+Hot Upgrade:
+git -c http.extraheader="GIGALIXIR-HOT: true" push gigalixir
+
 To start your Phoenix app:
 
   * Install dependencies with `mix deps.get`
