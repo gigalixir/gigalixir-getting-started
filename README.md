@@ -3,6 +3,9 @@
 Hot Upgrade:
 git -c http.extraheader="GIGALIXIR-HOT: true" push gigalixir
 
+Clean cache before building
+git -c http.extraheader="GIGALIXIR-CLEAN: true" push gigalixir
+
 To start your Phoenix app:
 
   * Install dependencies with `mix deps.get`
