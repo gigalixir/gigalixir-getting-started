@@ -1,5 +1,7 @@
 # GigalixirGettingStarted
 
+Git v2.9.0 required to support extra headers.
+
 Hot Upgrade:
 git -c http.extraheader="GIGALIXIR-HOT: true" push gigalixir
 
