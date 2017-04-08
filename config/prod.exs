@@ -57,7 +57,7 @@ config :logger, level: :info
 #
 config :gigalixir_getting_started, GigalixirGettingStarted.Endpoint,
   server: true,
-  secret_key_base: {:system, "SECRET_KEY_BASE"}
+  secret_key_base: "${SECRET_KEY_BASE}"
 
 # Configure your database
 config :gigalixir_getting_started, GigalixirGettingStarted.Repo,
@@ -71,7 +71,9 @@ config :libcluster,
       strategy: Cluster.Strategy.Kubernetes,
       config: [
         # It would be nicer if this was {:system, "LIBCLUSTER_KUBERNETES_SELECTOR"} like the above
-        # but libcluster doesn't currently (1/10/17) support that. 
+        # but libcluster doesn't currently (1/10/17) support that and is just a convention that
+        # not all libraries support.
+        #
         # We have two options:
         # 1. Use System.get_env
         #    We know the selector at build time and we don't need to change it at 
@@ -79,6 +81,12 @@ config :libcluster,
         # 2. Use REPLACE_OS_VARS
         #    The config in this file gets turned into an erlang sys.config file.
         #    Distillery's boot.eex will replace os vars in sys.config if 
-        #    REPLACE_OS_VARS=true.
+        #    REPLACE_OS_VARS=true. This method only works with strings so it will
+        #    fail if the config requires an integer.
+        #
+        # We chose option 2 because setting up env vars at compile time is not strictly
+        # necessary and avoiding it reduces complexity. We need runtime env vars anyway and
+        # this is the more standard way of doing it. See 
+        # http://sgeos.github.io/phoenix/elixir/erlang/ecto/exrm/postgresql/mysql/2016/09/11/storing-elixir-release-configuration-in-environment-variables.html
         kubernetes_selector: "${LIBCLUSTER_KUBERNETES_SELECTOR}",
         kubernetes_node_basename: "${LIBCLUSTER_KUBERNETES_NODE_BASENAME}"]]]
