@@ -63,7 +63,7 @@ config :gigalixir_getting_started, GigalixirGettingStarted.Endpoint,
 config :gigalixir_getting_started, GigalixirGettingStarted.Repo,
   adapter: Ecto.Adapters.Postgres,
   url: {:system, "DATABASE_URL"},
-  pool_size: 20
+  pool_size: 1
 
 config :libcluster,
   topologies: [
