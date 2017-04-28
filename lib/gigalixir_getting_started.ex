@@ -9,7 +9,10 @@ defmodule GigalixirGettingStarted do
     # Define workers and child supervisors to be supervised
     children = [
       # Start the Ecto repository
-      supervisor(GigalixirGettingStarted.Repo, []),
+
+      # Removed from default app in case database is not set up yet.
+      # supervisor(GigalixirGettingStarted.Repo, []),
+
       # Start the endpoint when the application starts
       supervisor(GigalixirGettingStarted.Endpoint, []),
       # Start your own worker by calling: GigalixirGettingStarted.Worker.start_link(arg1, arg2, arg3)
