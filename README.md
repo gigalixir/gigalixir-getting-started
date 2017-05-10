@@ -3,10 +3,12 @@
 Git v2.9.0 required to support extra headers.
 
 Hot Upgrade:
-git -c http.extraheader="GIGALIXIR-HOT: true" push gigalixir
 
-Clean cache before building
-git -c http.extraheader="GIGALIXIR-CLEAN: true" push gigalixir
+    git -c http.extraheader="GIGALIXIR-HOT: true" push gigalixir master
+
+Clean cache before building:
+
+    git -c http.extraheader="GIGALIXIR-CLEAN: true" push gigalixir master
 
 To start your Phoenix app:
 
