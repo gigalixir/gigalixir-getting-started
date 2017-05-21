@@ -11,7 +11,7 @@ defmodule GigalixirGettingStarted do
       # Start the Ecto repository
 
       # Removed from default app in case database is not set up yet.
-      # supervisor(GigalixirGettingStarted.Repo, []),
+      supervisor(GigalixirGettingStarted.Repo, []),
 
       # Start the endpoint when the application starts
       supervisor(GigalixirGettingStarted.Endpoint, []),
