@@ -63,6 +63,12 @@ config :gigalixir_getting_started, GigalixirGettingStarted.Endpoint,
 config :gigalixir_getting_started, GigalixirGettingStarted.Repo,
   adapter: Ecto.Adapters.Postgres,
   url: {:system, "DATABASE_URL"},
+
+  # This is a huge hack. When DATABASE_URL is empty, postgrex crashes when it can not find :database here.
+  # This results in an infinite loop as postgrex gets restarted. This line stops it from crashing and instead
+  # allows it to fail connection attempts at a reasonable rate. When DATABASE_URL is present, this line is
+  # not used.
+  database: "",
   pool_size: 1
 
 config :libcluster,
