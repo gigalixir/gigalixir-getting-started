@@ -1,3 +1,5 @@
 # pre_start
 echo "we're starting!"
+echo "user: $USER"
+apt-get install -y vim
 
