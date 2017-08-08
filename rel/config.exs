@@ -13,8 +13,8 @@ use Mix.Releases.Config,
 # when building in that environment, this combination of release
 # and environment configuration is called a profile
 environment :default do
-    set pre_start_hook: "rel/hooks/pre_start"
-    set post_start_hook: "rel/hooks/post_start"
+  set pre_start_hook: "rel/hooks/pre_start"
+  set post_start_hook: "rel/hooks/post_start"
 end
 
 environment :dev do
@@ -29,6 +29,8 @@ environment :prod do
   # this is just to get rid of the warning. see https://github.com/bitwalker/distillery/issues/140
   set cookie: :"${MY_COOKIE}"
   set vm_args: "rel/vm.args"
+  set pre_start_hook: "rel/hooks/pre_start"
+  set post_start_hook: "rel/hooks/post_start"
 end
 
 # You may define one or more releases in this file.
