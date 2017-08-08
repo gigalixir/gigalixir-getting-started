@@ -96,3 +96,8 @@ config :libcluster,
         # http://sgeos.github.io/phoenix/elixir/erlang/ecto/exrm/postgresql/mysql/2016/09/11/storing-elixir-release-configuration-in-environment-variables.html
         kubernetes_selector: "${LIBCLUSTER_KUBERNETES_SELECTOR}",
         kubernetes_node_basename: "${LIBCLUSTER_KUBERNETES_NODE_BASENAME}"]]]
+
+config :pdf_generator,
+  wkhtml_path: "/usr/bin/wkhtmltopdf",
+  pdftk_path: "/usr/bin/pdftk"
+
