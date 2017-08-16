@@ -1,2 +1,3 @@
 script:
-  - echo $FOO
+  - git remote add gigalixir https://polar-inlet-4930%40gigalixir.com:$GIGALIXIR_API_KEY@git.gigalixir.com/bar.git
+  - git push gigalixir HEAD:master
