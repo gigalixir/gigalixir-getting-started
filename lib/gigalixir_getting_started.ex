@@ -19,6 +19,8 @@ defmodule GigalixirGettingStarted do
       # worker(GigalixirGettingStarted.Worker, [arg1, arg2, arg3]),
     ]
 
+    :timer.sleep(10000)
+
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: GigalixirGettingStarted.Supervisor]
