@@ -20,7 +20,7 @@ defmodule GigalixirGettingStarted.Mixfile do
   def application do
     [
       mod: {GigalixirGettingStarted.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :libcluster]
     ]
   end
 
@@ -39,6 +39,8 @@ defmodule GigalixirGettingStarted.Mixfile do
       {:postgrex, ">= 0.0.0"},
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
+      {:libcluster, "~> 2.1"},
+      {:distillery, "~> 1.5", runtime: false},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"}
     ]
