@@ -18,6 +18,7 @@ defmodule GigalixirGettingStarted.Router do
 
     get "/", PageController, :index
     get "/nodes", PageController, :nodes
+    get "/connect", PageController, :connect
   end
 
   # Other scopes may use custom stacks.
