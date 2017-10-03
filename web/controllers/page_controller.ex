@@ -19,9 +19,13 @@ defmodule GigalixirGettingStarted.PageController do
     IO.inspect body
     data = body["data"]
     IO.inspect data
-    Enum.map(data, &Node.connect/1)
+    result = data
+    |> Enum.map(&String.to_atom/1)
+    |> Enum.map(&Node.connect/1)
+
+    IO.inspect result
     json conn, %{
-      data: data
+      data: result
     }
   end
 end
