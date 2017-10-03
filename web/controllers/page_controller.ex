@@ -12,18 +12,15 @@ defmodule GigalixirGettingStarted.PageController do
   end
 
   def connect(conn, params) do
-    url = params["url"]
-    response = HTTPoison.get!(url)
-    body = response.body
-    body = Poison.decode!(body)
-    IO.inspect body
-    data = body["data"]
-    IO.inspect data
-    result = data
+    result = params
+    |> Map.get("url")
+    |> HTTPoison.get!
+    |> Map.get(:body)
+    |> Poison.decode!
+    |> Map.get("data")
     |> Enum.map(&String.to_atom/1)
     |> Enum.map(&Node.connect/1)
 
-    IO.inspect result
     json conn, %{
       data: result
     }
