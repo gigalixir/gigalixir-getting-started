@@ -32,6 +32,12 @@ config :gigalixir_getting_started, GigalixirGettingStarted.Repo,
 
 config :libcluster,
   topologies: [
+    gigalixir_example: [
+      strategy: GigalixirGettingStarted.Libcluster.Strategy,
+      config: [
+        url: "https://bar.gigalixirapp.com/nodes"
+      ]
+    ],
     k8s_example: [
       strategy: Cluster.Strategy.Kubernetes,
       config: [
