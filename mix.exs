@@ -20,7 +20,7 @@ defmodule GigalixirGettingStarted.Mixfile do
   def application do
     [
       mod: {GigalixirGettingStarted.Application, []},
-      extra_applications: [:logger, :runtime_tools, :libcluster]
+      extra_applications: [:logger, :runtime_tools, :libcluster, :httpoison]
     ]
   end
 
@@ -42,6 +42,7 @@ defmodule GigalixirGettingStarted.Mixfile do
       {:libcluster, "~> 2.1"},
       {:distillery, "~> 1.5", runtime: false},
       {:gettext, "~> 0.11"},
+      {:httpoison, "~> 0.13"},
       {:cowboy, "~> 1.0"}
     ]
   end
