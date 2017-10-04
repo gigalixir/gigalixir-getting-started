@@ -17,6 +17,8 @@ defmodule GigalixirGettingStarted.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/nodes", PageController, :nodes
+    get "/connect", PageController, :connect
   end
 
   # Other scopes may use custom stacks.
