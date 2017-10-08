@@ -30,7 +30,7 @@ config :gigalixir_getting_started, GigalixirGettingStarted.Repo,
   url: "${DATABASE_URL}",
   database: "",
   ssl: true,
-  pool_size: 10
+  pool_size: 1
 
 config :libcluster,
   topologies: [
