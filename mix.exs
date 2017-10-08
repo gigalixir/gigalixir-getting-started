@@ -20,7 +20,7 @@ defmodule GigalixirGettingStarted.Mixfile do
   def application do
     [
       mod: {GigalixirGettingStarted.Application, []},
-      extra_applications: [:logger, :runtime_tools, :libcluster]
+      extra_applications: [:logger, :runtime_tools, :ssl]
     ]
   end
 

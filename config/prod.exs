@@ -16,9 +16,11 @@ use Mix.Config
 config :gigalixir_getting_started, GigalixirGettingStartedWeb.Endpoint,
   load_from_system_env: true,
   url: [host: "example.com", port: 80],
+  cache_static_manifest: "priv/static/cache_manifest.json"
+
+config :gigalixir_getting_started, GigalixirGettingStartedWeb.Endpoint,
   server: true,
   secret_key_base: "${SECRET_KEY_BASE}",
-  cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Do not print debug messages in production
 config :logger, level: :info
