@@ -32,9 +32,13 @@ deploy_staging:
   stage: deploy
   script:
     - echo "Deploy to staging server"
+    - echo "Adding git remote"
+    - git remote add gigalixir "https://$GIGALIXIR_EMAIL:$GIGALIXIR_API_KEY@git.gigalixir.com/$GIGALIXIR_APP_NAME-staging.git"
+    - echo "Pushing to gigalixir"
+    - git push gigalixir HEAD:refs/heads/master
   environment:
     name: staging
-    url: https://bar-staging.gigalixirapp.com
+    url: https://$GIGALIXIR_APP_NAME-staging.gigalixirapp.com
   only:
   - master
 
@@ -42,9 +46,13 @@ deploy_prod:
   stage: deploy
   script:
     - echo "Deploy to production server"
+    - echo "Adding git remote"
+    - git remote add gigalixir "https://$GIGALIXIR_EMAIL:$GIGALIXIR_API_KEY@git.gigalixir.com/$GIGALIXIR_APP_NAME.git"
+    - echo "Pushing to gigalixir"
+    - git push gigalixir HEAD:refs/heads/master
   environment:
     name: production
-    url: https://bar.gigalixirapp.com
+    url: https://$GIGALIXIR_APP_NAME.gigalixirapp.com
   when: manual
   only:
   - master
