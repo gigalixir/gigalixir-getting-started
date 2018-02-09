@@ -82,7 +82,6 @@ stop_review:
       -v
       -X DELETE
       "https://$GIGALIXIR_EMAIL:$GIGALIXIR_API_KEY@api.gigalixir.com/api/apps/$GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG" 
-  when: manual
   environment:
     name: review/$CI_COMMIT_REF_NAME
     action: stop
