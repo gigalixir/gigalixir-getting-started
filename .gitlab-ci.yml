@@ -15,8 +15,8 @@ deploy_review:
   stage: deploy
   script:
     - echo "Deploy a review app"
-    - curl https://$GIGALIXIR_EMAIL:$GIGALIXIR_API_KEY@api.gigalixir.com/api/apps -H 'Content-Type: application/json' -d "{\"unique_name\": \"$GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG\"}"
-    - git remote add gigalixir https://$GIGALIXIR_EMAIL:$GIGALIXIR_API_KEY@git.gigalixir.com/$GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG.git
+    - curl "https://$GIGALIXIR_EMAIL:$GIGALIXIR_API_KEY@api.gigalixir.com/api/apps" -H "Content-Type: application/json" -d "{\"unique_name\": \"$GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG\"}"
+    - git remote add gigalixir "https://$GIGALIXIR_EMAIL:$GIGALIXIR_API_KEY@git.gigalixir.com/$GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG.git"
     - git push gigalixir HEAD:master
   environment:
     name: review/$CI_COMMIT_REF_NAME
