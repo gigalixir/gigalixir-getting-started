@@ -8,6 +8,7 @@ deploy_review:
     - echo "Creating gigalixir app $GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG"
     - >-
       curl 
+      -v
       -H "Content-Type: application/json" 
       -X POST
       --data "
@@ -66,6 +67,7 @@ stop_review:
     - echo "Scaling app down to 0"
     - >-
       curl 
+      -v
       -H "Content-Type: application/json" 
       -X PUT
       --data "
@@ -77,6 +79,7 @@ stop_review:
     - echo "Deleting gigalixir app"
     - >-
       curl 
+      -v
       -X DELETE
       "https://$GIGALIXIR_EMAIL:$GIGALIXIR_API_KEY@api.gigalixir.com/api/apps/$GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG" 
   when: manual
