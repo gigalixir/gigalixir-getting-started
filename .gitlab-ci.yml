@@ -24,6 +24,7 @@ deploy_review:
   environment:
     name: review/$CI_COMMIT_REF_NAME
     url: https://$GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG.gigalixirapp.com
+    on_stop: stop_review
   only:
     - branches
   except:
