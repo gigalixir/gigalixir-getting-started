@@ -12,10 +12,15 @@ deploy_review:
     - pip install gigalixir
     - echo "Logging into gigalixir"
     - gigalixir login -e $GIGALIXIR_EMAIL -y -p $GIGALIXIR_PASSWORD
-    - echo "Creating gigalixir app $GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG"
-    - gigalixir create --name $GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG || gigalixir set_git_remote $GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG
+    - APP_NAME="$GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG"
+    - echo "Creating gigalixir app $APP_NAME"
+    - gigalixir create --name $APP_NAME || gigalixir set_git_remote $APP_NAME
+    - echo "Creating database"
+    - gigalixir create_database $APP_NAME
     - echo "Pushing"
     - git push -f gigalixir HEAD:refs/heads/master
+    - echo "Databases may take some time to create. You can check the status by running `gigalixir databases $APP_NAME`"
+    - echo "To run migrations automatically, see http://gigalixir.readthedocs.io/en/latest/main.html#how-to-set-up-continuous-integration-ci-cd"
   environment:
     name: review/$CI_COMMIT_REF_NAME
     url: https://$GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG.gigalixirapp.com
@@ -70,12 +75,16 @@ stop_review:
     GIT_STRATEGY: none
   script:
     - apt-get update
-    - apt-get install -y python-pip
+    - apt-get install -y python-pip jq
     - pip install gigalixir
     - echo "Logging into gigalixir"
     - gigalixir login -e $GIGALIXIR_EMAIL -y -p $GIGALIXIR_PASSWORD
-    - echo "Scaling app $GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG to 0 replicas"
-    - gigalixir scale --replicas=0 $GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG
+    - APP_NAME="$GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG"
+    - echo "Scaling app $APP_NAME to 0 replicas"
+    - gigalixir scale --replicas=0 $APP_NAME
+    - echo "Looking for databases"
+    - DATABASE_IDS=$(gigalixir databases $APP_NAME | jq -r '.[] | select(.state == "AVAILABLE") | .id')
+    - for db in $DATABASE_IDS; do echo "Deleting database ${DATABASE_IDS}"; gigalixir delete_database $APP_NAME $db; done
   when: manual
   environment:
     name: review/$CI_COMMIT_REF_NAME
