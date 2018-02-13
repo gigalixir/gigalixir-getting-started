@@ -11,6 +11,9 @@ deploy_review:
     - apt-get install -y python-pip
     - pip install gigalixir
     - echo "Creating gigalixir app $GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG"
+    - gigalixir create --name $GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG
+    - echo "Pushing"
+    - git push -f gigalixir HEAD:refs/heads/master
   environment:
     name: review/$CI_COMMIT_REF_NAME
     url: https://$GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG.gigalixirapp.com
@@ -54,25 +57,13 @@ stop_review:
   variables:
     GIT_STRATEGY: none
   script:
-    - echo "Remove review app"
-    - echo "Scaling app down to 0"
-    - >-
-      curl 
-      -v
-      -H "Content-Type: application/json" 
-      -X PUT
-      --data "
-      {
-      \"replicas\": 0
-      }
-      "
-      "https://$GIGALIXIR_EMAIL:$GIGALIXIR_API_KEY@api.gigalixir.com/api/apps/$GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG/scale" 
-    - echo "Deleting gigalixir app"
-    - >-
-      curl 
-      -v
-      -X DELETE
-      "https://$GIGALIXIR_EMAIL:$GIGALIXIR_API_KEY@api.gigalixir.com/api/apps/$GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG" 
+    - apt-get update
+    - apt-get install -y python-pip
+    - pip install gigalixir
+    - echo "Scaling app $GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG to 0 replicas"
+    - gigalixir scale --replicas=0 $GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG
+    - echo "Deleting app $GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG"
+    - gigalixir delete_app $GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG
   when: manual
   environment:
     name: review/$CI_COMMIT_REF_NAME
