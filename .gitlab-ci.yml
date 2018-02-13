@@ -8,8 +8,10 @@ deploy_review:
   script:
     - echo "Deploy a review app"
     - apt-get update
-    - apt-get install -y python-pip
+    - apt-get install -y python-pip git
     - pip install gigalixir
+    - echo "Logging into gigalixir"
+    - gigalixir login -e $GIGALIXIR_EMAIL -y -p $GIGALIXIR_PASSWORD
     - echo "Creating gigalixir app $GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG"
     - gigalixir create --name $GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG
     - echo "Pushing"
@@ -60,6 +62,8 @@ stop_review:
     - apt-get update
     - apt-get install -y python-pip
     - pip install gigalixir
+    - echo "Logging into gigalixir"
+    - gigalixir login -e $GIGALIXIR_EMAIL -y -p $GIGALIXIR_PASSWORD
     - echo "Scaling app $GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG to 0 replicas"
     - gigalixir scale --replicas=0 $GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG
     - echo "Deleting app $GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG"
