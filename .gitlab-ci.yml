@@ -66,8 +66,6 @@ stop_review:
     - gigalixir login -e $GIGALIXIR_EMAIL -y -p $GIGALIXIR_PASSWORD
     - echo "Scaling app $GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG to 0 replicas"
     - gigalixir scale --replicas=0 $GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG
-    - echo "Deleting app $GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG"
-    - gigalixir delete_app $GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG
   when: manual
   environment:
     name: review/$CI_COMMIT_REF_NAME
