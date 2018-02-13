@@ -29,10 +29,15 @@ deploy_staging:
   stage: deploy
   script:
     - echo "Deploy to staging server"
-    - echo "Adding git remote"
-    - git remote add gigalixir "https://$GIGALIXIR_EMAIL:$GIGALIXIR_API_KEY@git.gigalixir.com/$GIGALIXIR_APP_NAME-staging.git"
-    - echo "Pushing to gigalixir"
-    - git push gigalixir HEAD:refs/heads/master
+    - apt-get update
+    - apt-get install -y python-pip git
+    - pip install gigalixir
+    - echo "Logging into gigalixir"
+    - gigalixir login -e $GIGALIXIR_EMAIL -y -p $GIGALIXIR_PASSWORD
+    - echo "Setting git remote"
+    - gigalixir set_git_remote $GIGALIXIR_APP_NAME-staging
+    - echo "Pushing"
+    - git push -f gigalixir HEAD:refs/heads/master
   environment:
     name: staging
     url: https://$GIGALIXIR_APP_NAME-staging.gigalixirapp.com
@@ -43,10 +48,15 @@ deploy_prod:
   stage: deploy
   script:
     - echo "Deploy to production server"
-    - echo "Adding git remote"
-    - git remote add gigalixir "https://$GIGALIXIR_EMAIL:$GIGALIXIR_API_KEY@git.gigalixir.com/$GIGALIXIR_APP_NAME.git"
-    - echo "Pushing to gigalixir"
-    - git push gigalixir HEAD:refs/heads/master
+    - apt-get update
+    - apt-get install -y python-pip git
+    - pip install gigalixir
+    - echo "Logging into gigalixir"
+    - gigalixir login -e $GIGALIXIR_EMAIL -y -p $GIGALIXIR_PASSWORD
+    - echo "Setting git remote"
+    - gigalixir set_git_remote $GIGALIXIR_APP_NAME
+    - echo "Pushing"
+    - git push -f gigalixir HEAD:refs/heads/master
   environment:
     name: production
     url: https://$GIGALIXIR_APP_NAME.gigalixirapp.com
