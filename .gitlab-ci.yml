@@ -13,7 +13,7 @@ deploy_review:
     - echo "Logging into gigalixir"
     - gigalixir login -e $GIGALIXIR_EMAIL -y -p $GIGALIXIR_PASSWORD
     - echo "Creating gigalixir app $GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG"
-    - gigalixir create --name $GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG
+    - gigalixir create --name $GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG || echo "That's okay"
     - echo "Pushing"
     - git push -f gigalixir HEAD:refs/heads/master
   environment:
