@@ -84,7 +84,7 @@ stop_review:
     - gigalixir scale --replicas=0 $APP_NAME
     - echo "Looking for databases"
     - DATABASE_IDS=$(gigalixir databases $APP_NAME | jq -r '.[] | select(.state == "AVAILABLE") | .id')
-    - for db in $DATABASE_IDS; do echo "Deleting database ${DATABASE_IDS}"; gigalixir delete_database $APP_NAME $db; done
+    - for db in $DATABASE_IDS; do echo "Deleting database ${DATABASE_IDS}"; echo 'y' | gigalixir delete_database $APP_NAME $db; done
   when: manual
   environment:
     name: review/$CI_COMMIT_REF_NAME
