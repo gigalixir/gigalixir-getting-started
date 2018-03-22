@@ -42,6 +42,15 @@ environment :prod do
   set vm_args: "rel/vm.args"
 end
 
+environment :gigalixir do
+  set include_erts: true
+  set include_src: false
+
+  # this is just to get rid of the warning. see https://github.com/bitwalker/distillery/issues/140
+  set cookie: :"${MY_COOKIE}"
+  set vm_args: "rel/vm.args"
+end
+
 # You may define one or more releases in this file.
 # If you have not set a default release, or selected one
 # when running `mix release`, the first release in the file
@@ -53,4 +62,5 @@ release :gigalixir_getting_started do
     :runtime_tools
   ]
 end
+
 
