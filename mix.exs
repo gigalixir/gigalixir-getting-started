@@ -4,7 +4,7 @@ defmodule GigalixirGettingStarted.Mixfile do
   def project do
     [
       app: :gigalixir_getting_started,
-      version: "0.0.1",
+      version: "0.0.2",
       elixir: "~> 1.4",
       elixirc_paths: elixirc_paths(Mix.env),
       compilers: [:phoenix, :gettext] ++ Mix.compilers,
