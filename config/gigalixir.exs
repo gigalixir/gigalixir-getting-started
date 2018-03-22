@@ -1,1 +1,1 @@
-config/prod.exs
+prod.exs
