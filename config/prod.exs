@@ -20,14 +20,14 @@ config :gigalixir_getting_started, GigalixirGettingStartedWeb.Endpoint,
 
 config :gigalixir_getting_started, GigalixirGettingStartedWeb.Endpoint,
   server: true,
-  secret_key_base: "${SECRET_KEY_BASE}"
+  secret_key_base: System.get_env("SECRET_KEY_BASE")
 
 # Do not print debug messages in production
 config :logger, level: :info
 
 config :gigalixir_getting_started, GigalixirGettingStarted.Repo,
   adapter: Ecto.Adapters.Postgres,
-  url: "${DATABASE_URL}",
+  url: System.get_env("DATABASE_URL"),
   database: "",
   ssl: true,
   pool_size: 1
@@ -37,8 +37,8 @@ config :libcluster,
     k8s_example: [
       strategy: Cluster.Strategy.Kubernetes,
       config: [
-        kubernetes_selector: "${LIBCLUSTER_KUBERNETES_SELECTOR}",
-        kubernetes_node_basename: "${LIBCLUSTER_KUBERNETES_NODE_BASENAME}"]]]
+        kubernetes_selector: System.get_env("LIBCLUSTER_KUBERNETES_SELECTOR"),
+        kubernetes_node_basename: System.get_env("LIBCLUSTER_KUBERNETES_NODE_BASENAME")]]]
 
 # ## SSL Support
 #
