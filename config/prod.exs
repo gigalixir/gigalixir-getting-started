@@ -32,14 +32,6 @@ config :gigalixir_getting_started, GigalixirGettingStarted.Repo,
   ssl: true,
   pool_size: 1
 
-config :libcluster,
-  topologies: [
-    k8s_example: [
-      strategy: Cluster.Strategy.Kubernetes,
-      config: [
-        kubernetes_selector: System.get_env("LIBCLUSTER_KUBERNETES_SELECTOR"),
-        kubernetes_node_basename: System.get_env("LIBCLUSTER_KUBERNETES_NODE_BASENAME")]]]
-
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key
