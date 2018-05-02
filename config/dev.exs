@@ -56,3 +56,18 @@ config :gigalixir_getting_started, GigalixirGettingStarted.Repo,
   database: "gigalixir_getting_started_dev",
   hostname: "localhost",
   pool_size: 10
+
+config :geolix,
+  databases: [
+        %{
+          id:      :city,
+          adapter: Geolix.Adapter.MMDB2,
+          source:  "https://storage.googleapis.com/gigalixir/dev/maxmind/GeoLite2-City.mmdb"
+        },
+        %{
+          id:      :country,
+          adapter: Geolix.Adapter.MMDB2,
+          source:  "https://storage.googleapis.com/gigalixir/dev/maxmind/GeoLite2-Country.mmdb"
+        }
+      ]
+

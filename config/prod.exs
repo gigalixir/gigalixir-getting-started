@@ -81,3 +81,17 @@ config :libcluster,
 # Finally import the config/prod.secret.exs
 # which should be versioned separately.
 # import_config "prod.secret.exs"
+config :geolix,
+  databases: [
+        %{
+          id:      :city,
+          adapter: Geolix.Adapter.MMDB2,
+          source:  "https://storage.googleapis.com/gigalixir/dev/maxmind/GeoLite2-City.mmdb"
+        },
+        %{
+          id:      :country,
+          adapter: Geolix.Adapter.MMDB2,
+          source:  "https://storage.googleapis.com/gigalixir/dev/maxmind/GeoLite2-Country.mmdb"
+        }
+      ]
+
