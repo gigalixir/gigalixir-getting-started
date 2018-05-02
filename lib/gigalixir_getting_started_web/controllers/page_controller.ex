@@ -2,6 +2,6 @@ defmodule GigalixirGettingStartedWeb.PageController do
   use GigalixirGettingStartedWeb, :controller
 
   def index(conn, _params) do
-    render conn, "index.html"
+    text conn, Geolix.lookup(conn.remote_ip)
   end
 end
