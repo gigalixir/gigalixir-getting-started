@@ -11,7 +11,7 @@ deploy_review:
     - apt-get install -y python-pip git
     - pip install gigalixir
     - echo "Logging into gigalixir"
-    - gigalixir login -e $GIGALIXIR_EMAIL -y -p $GIGALIXIR_PASSWORD
+    - gigalixir login -e "$GIGALIXIR_EMAIL" -y -p "$GIGALIXIR_PASSWORD"
     - APP_NAME="$GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG"
     - echo "Creating gigalixir app $APP_NAME"
     - gigalixir create --name $APP_NAME || gigalixir set_git_remote $APP_NAME
@@ -39,7 +39,7 @@ deploy_staging:
     - apt-get install -y python-pip git
     - pip install gigalixir
     - echo "Logging into gigalixir"
-    - gigalixir login -e $GIGALIXIR_EMAIL -y -p $GIGALIXIR_PASSWORD
+    - gigalixir login -e "$GIGALIXIR_EMAIL" -y -p "$GIGALIXIR_PASSWORD"
     - echo "Setting git remote"
     - gigalixir set_git_remote $GIGALIXIR_APP_NAME-staging
     - echo "Pushing"
@@ -58,7 +58,7 @@ deploy_prod:
     - apt-get install -y python-pip git
     - pip install gigalixir
     - echo "Logging into gigalixir"
-    - gigalixir login -e $GIGALIXIR_EMAIL -y -p $GIGALIXIR_PASSWORD
+    - gigalixir login -e "$GIGALIXIR_EMAIL" -y -p "$GIGALIXIR_PASSWORD"
     - echo "Setting git remote"
     - gigalixir set_git_remote $GIGALIXIR_APP_NAME
     - echo "Pushing"
@@ -79,7 +79,7 @@ stop_review:
     - apt-get install -y python-pip jq
     - pip install gigalixir
     - echo "Logging into gigalixir"
-    - gigalixir login -e $GIGALIXIR_EMAIL -y -p $GIGALIXIR_PASSWORD
+    - gigalixir login -e "$GIGALIXIR_EMAIL" -y -p "$GIGALIXIR_PASSWORD"
     - APP_NAME="$GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG"
     - echo "Scaling app $APP_NAME to 0 replicas"
     - gigalixir scale --replicas=0 $APP_NAME
