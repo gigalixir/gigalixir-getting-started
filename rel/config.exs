@@ -36,10 +36,6 @@ end
 environment :prod do
   set include_erts: true
   set include_src: false
-
-  # this is just to get rid of the warning. see https://github.com/bitwalker/distillery/issues/140
-  set cookie: :"${MY_COOKIE}"
-  set vm_args: "rel/vm.args"
 end
 
 # You may define one or more releases in this file.
