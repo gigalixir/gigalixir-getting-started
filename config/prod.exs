@@ -19,6 +19,7 @@ config :gigalixir_getting_started, GigalixirGettingStartedWeb.Endpoint,
   cache_static_manifest: "priv/static/cache_manifest.json"
 
 config :gigalixir_getting_started, GigalixirGettingStartedWeb.Endpoint,
+  http: [port: 4001],
   server: true,
   secret_key_base: "${SECRET_KEY_BASE}"
 
