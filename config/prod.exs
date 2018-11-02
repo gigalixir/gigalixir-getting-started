@@ -19,8 +19,8 @@ config :gigalixir_getting_started, GigalixirGettingStartedWeb.Endpoint,
   cache_static_manifest: "priv/static/cache_manifest.json"
 
 config :gigalixir_getting_started, GigalixirGettingStartedWeb.Endpoint,
-  http: [port: 4001],
-  server: true,
+  http: [port: {:system, "PORT"}],
+  # server: true,
   secret_key_base: "${SECRET_KEY_BASE}"
 
 # Do not print debug messages in production
