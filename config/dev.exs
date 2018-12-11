@@ -73,3 +73,14 @@ config :gigalixir_getting_started, GigalixirGettingStarted.Repo,
   database: "gigalixir_getting_started_dev",
   hostname: "localhost",
   pool_size: 10
+
+config :master_proxy, 
+  http: [:inet6, port: 4001],
+  backends: [
+    %{
+      # host: ~r/localhost/,
+      phoenix_endpoint: GigalixirGettingStartedWeb.Endpoint,
+      # plug: MasterProxy.Plug.Test,
+      opts: [1, 2, 3]
+    }
+  ]
