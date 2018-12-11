@@ -23,7 +23,6 @@ workflows:
   deploy:
     jobs:
       - deploy:
-          context: elixir
           filters:
             branches:
               only: master
