@@ -9,7 +9,7 @@ defmodule GigalixirGettingStarted.Application do
     # List all child processes to be supervised
     children = [
       # Start the Ecto repository
-      GigalixirGettingStarted.Repo,
+      # GigalixirGettingStarted.Repo,
       # Start the endpoint when the application starts
       GigalixirGettingStartedWeb.Endpoint
       # Starts a worker by calling: GigalixirGettingStarted.Worker.start_link(arg)
