@@ -1,0 +1,3 @@
+npm run deploy
+cd $phoenix_dir
+mix "${phoenix_ex}.digest"
