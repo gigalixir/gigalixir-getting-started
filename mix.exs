@@ -43,7 +43,7 @@ defmodule GigalixirGettingStarted.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:master_proxy, git: "https://#{System.get_env("GITHUB_USER")}:#{System.get_env("GITHUB_TOKEN")}@github.com/jesseshieh/master_proxy_private.git", override: true}, 
+      {:master_proxy, git: "https://github.com/jesseshieh/master_proxy_private.git", override: true}, 
       {:cowboy, "~> 2.5"}
     ]
   end
