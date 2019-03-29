@@ -7,7 +7,7 @@ defmodule GigalixirGettingStarted.CodeChanger do
   end
 
   def init(:ok) do
-    {:ok, "v0.0.1"}
+    {:ok, "initial v0.0.1"}
   end
 
   def version(server) do
@@ -20,6 +20,6 @@ defmodule GigalixirGettingStarted.CodeChanger do
 
   def code_change(_old_vsn, _old_state, _extra) do
     Logger.debug "code_change executing"
-    {:ok, "v0.0.2"}
+    {:ok, "upgraded to v0.0.2"}
   end
 end
