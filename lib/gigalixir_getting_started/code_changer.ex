@@ -1,6 +1,6 @@
 defmodule GigalixirGettingStarted.CodeChanger do
   use GenServer
-  use Logger
+  import Logger
 
   def start_link(opts) do
     GenServer.start_link(__MODULE__, :ok, opts)
