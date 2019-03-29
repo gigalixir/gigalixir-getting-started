@@ -40,7 +40,7 @@ defmodule GigalixirGettingStarted.Mixfile do
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:libcluster, "~> 2.1"},
-      {:distillery, "~> 1.5", runtime: false},
+      {:distillery, "~> 2.0", runtime: false},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"}
     ]
