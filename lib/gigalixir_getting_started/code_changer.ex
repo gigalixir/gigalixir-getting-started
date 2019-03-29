@@ -7,7 +7,7 @@ defmodule GigalixirGettingStarted.CodeChanger do
   end
 
   def init(:ok) do
-    {:ok, "initial v0.0.1"}
+    {:ok, "initial v0.0.2"}
   end
 
   def version(server) do
