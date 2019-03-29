@@ -1,5 +1,6 @@
 defmodule GigalixirGettingStarted.CodeChanger do
   use GenServer
+  use Logger
 
   def start_link(opts) do
     GenServer.start_link(__MODULE__, :ok, opts)
@@ -18,6 +19,7 @@ defmodule GigalixirGettingStarted.CodeChanger do
   end
 
   def code_change(_old_vsn, _old_state, _extra) do
+    Logger.debug "code_change executing"
     {:ok, "v0.0.2"}
   end
 end
