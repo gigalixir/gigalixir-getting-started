@@ -34,11 +34,11 @@ config :gigalixir_getting_started, GigalixirGettingStarted.Repo,
 
 config :libcluster,
   topologies: [
-    my_repo: [
-      strategy: Cluster.Strategy.Kubernetes,
-      config: [
-        kubernetes_selector: "${LIBCLUSTER_KUBERNETES_SELECTOR}",
-        kubernetes_node_basename: "${LIBCLUSTER_KUBERNETES_NODE_BASENAME}"]],
+    # my_repo: [
+    #   strategy: Cluster.Strategy.Kubernetes,
+    #   config: [
+    #     kubernetes_selector: "${LIBCLUSTER_KUBERNETES_SELECTOR}",
+    #     kubernetes_node_basename: "${LIBCLUSTER_KUBERNETES_NODE_BASENAME}"]],
     other_repo: [
       strategy: Cluster.Strategy.Kubernetes,
       config: [
