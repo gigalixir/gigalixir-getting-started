@@ -39,7 +39,7 @@ defmodule GigalixirGettingStarted.Mixfile do
       {:postgrex, ">= 0.0.0"},
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
-      {:libcluster, "~> 2.1"},
+      {:libcluster, github: "bitwalker/libcluster", ref: "5b12620f53d2f4fb3ea893bef6e51ee3efad129d"},
       {:distillery, "~> 1.5", runtime: false},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"}

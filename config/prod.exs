@@ -34,16 +34,16 @@ config :gigalixir_getting_started, GigalixirGettingStarted.Repo,
 
 config :libcluster,
   topologies: [
-    k8s_example: [
+    my_repo: [
       strategy: Cluster.Strategy.Kubernetes,
       config: [
         kubernetes_selector: "${LIBCLUSTER_KUBERNETES_SELECTOR}",
         kubernetes_node_basename: "${LIBCLUSTER_KUBERNETES_NODE_BASENAME}"]],
-    k8s_example2: [
+    other_repo: [
       strategy: Cluster.Strategy.Kubernetes,
       config: [
-        kubernetes_selector: "${LIBCLUSTER_KUBERNETES_SELECTOR2}",
-        kubernetes_node_basename: "${LIBCLUSTER_KUBERNETES_NODE_BASENAME2}"]]
+        kubernetes_selector: "${LIBCLUSTER_KUBERNETES_SELECTOR_OTHER}",
+        kubernetes_node_basename: "${LIBCLUSTER_KUBERNETES_NODE_BASENAME_OTHER}"]]
   ]
 
 # ## SSL Support

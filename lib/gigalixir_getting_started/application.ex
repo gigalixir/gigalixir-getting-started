@@ -14,6 +14,7 @@ defmodule GigalixirGettingStarted.Application do
       supervisor(GigalixirGettingStartedWeb.Endpoint, []),
       # Start your own worker by calling: GigalixirGettingStarted.Worker.start_link(arg1, arg2, arg3)
       # worker(GigalixirGettingStarted.Worker, [arg1, arg2, arg3]),
+      {Cluster.Supervisor, [Application.get_env(:libcluster, :topologies), [name: GigalixirGettingStarted.ClusterSupervisor]]},
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
