@@ -2,7 +2,8 @@
 # They can then be used by adding `plugin MyPlugin` to
 # either an environment, or release definition, where
 # `MyPlugin` is the name of the plugin module.
-Path.join(["rel", "plugins", "*.exs"])
+~w(rel plugins *.exs)
+|> Path.join()
 |> Path.wildcard()
 |> Enum.map(&Code.eval_file(&1))
 
@@ -13,7 +14,7 @@ use Mix.Releases.Config,
     default_environment: Mix.env()
 
 # For a full list of config options for both releases
-# and environments, visit https://hexdocs.pm/distillery/configuration.html
+# and environments, visit https://hexdocs.pm/distillery/config/distillery.html
 
 
 # You may define one or more environments in this file,
@@ -30,12 +31,14 @@ environment :dev do
   # dev mode.
   set dev_mode: true
   set include_erts: false
-  set cookie: :":?~:F=8MA(0O>6<6:IX{n{{S$3z~/d:C;in)7MCagy/Fpo_*oezG&L}lTnX~FC[|"
+  set cookie: :"]86bem})uxE2r_%[Udwu9e4EsHc;)GI|d(aRai7:d7i;yh)=LZ5jMO4S$hu,{%vT"
 end
 
 environment :prod do
   set include_erts: true
   set include_src: false
+  set cookie: :"Ax38]s3IvVAtn>>:h%oRYp6v:tyZmmu`_;a%O|@S[ORT160ur$KLMaf@JBqT*,eS"
+  set vm_args: "rel/vm.args"
 end
 
 # You may define one or more releases in this file.
