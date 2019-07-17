@@ -19,9 +19,9 @@ deploy_review:
     - if [ "$(gigalixir pg -a $APP_NAME)" = "[]" ]; then gigalixir pg:create -a $APP_NAME; fi
     - echo "Pushing"
     - git push -f gigalixir HEAD:refs/heads/master
-    - echo "Databases may take some time to create. You can check the status by running gigalixir databases $APP_NAME"
+    - echo "Databases may take some time to create. You can check the status by running gigalixir pg -a $APP_NAME"
     - echo "To run migrations automatically, see http://gigalixir.readthedocs.io/en/latest/main.html#how-to-set-up-continuous-integration-ci-cd"
-    - echo "Don't forget to set config variables here if needed by running gigalixir set_config $APP_NAME KEY VALUE"
+    - echo "Don't forget to set config variables here if needed by running gigalixir config:set -a $APP_NAME KEY=VALUE"
   environment:
     name: review/$CI_COMMIT_REF_NAME
     url: https://$GIGALIXIR_APP_NAME-$CI_ENVIRONMENT_SLUG.gigalixirapp.com
