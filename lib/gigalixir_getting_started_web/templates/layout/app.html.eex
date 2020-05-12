@@ -9,6 +9,7 @@
     <script defer type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </head>
   <body>
+    <%= render "_user_menu.html", assigns %>
     <header>
       <section class="container">
         <nav role="navigation">
