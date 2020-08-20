@@ -14,7 +14,7 @@ config :gigalixir_getting_started, GigalixirGettingStarted.Repo,
   url: "${DATABASE_URL}",
   database: "",
   ssl: true,
-  pool_size: 2 # Free tier db only allows 4 connections. Rolling deploys need pool_size*(n+1) connections where n is the number of app replicas.
+  pool_size: String.to_integer("${POOL_SIZE}")
 
 
 # For production, don't forget to configure the url host
