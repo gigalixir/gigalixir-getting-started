@@ -1,6 +1,6 @@
-// import Alpine from 'alpinejs' 
-// window.Alpine = Alpine 
-// Alpine.start()
+import Alpine from 'alpinejs' 
+window.Alpine = Alpine 
+Alpine.start()
 
 // We import the CSS which is extracted to its own file by esbuild.
 // Remove this line if you add a your own CSS build pipeline (e.g postcss).

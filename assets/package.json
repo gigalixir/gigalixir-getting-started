@@ -3,6 +3,7 @@
     "deploy": "cd ..; mix assets.deploy;"
   },
   "dependencies": {
+    "alpinejs": "^3.2.2"
   },
   "devDependencies": {
   }
