@@ -1,14 +1,9 @@
 {
   "scripts": {
-    "deploy": ""
+    "deploy": "pushd ..; mix assets.deploy; popd;"
   },
   "dependencies": {
-    "alpinejs": "^3.2.2"
   },
   "devDependencies": {
-    "autoprefixer": "^10.2.0",
-    "postcss": "^8.3.5",
-    "postcss-import": "^14.0.2",
-    "tailwindcss": "^2.2.4"
   }
 }
