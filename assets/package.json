@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "deploy": "pushd ..; mix assets.deploy; popd;"
+    "deploy": "cd ..; mix assets.deploy;"
   },
   "dependencies": {
   },
