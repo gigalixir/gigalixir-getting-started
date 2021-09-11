@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "deploy": "cd ..; mix assets.deploy; cd assets;"
+    "deploy": ""
   },
   "dependencies": {
     "alpinejs": "^3.2.2"
