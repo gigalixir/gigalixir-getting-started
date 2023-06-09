@@ -1,4 +1,39 @@
-# GigalixirGettingStarted
+Gigalixir Getting Started
+--
+
+This is a getting started project for [Gigalixir](https://www.gigalixir.com).
+
+This repo was built using the 
+[Phoenix deploy with Releases](https://www.gigalixir.com/docs/getting-started-guide/phoenix-releases-deploy).
+
+## Deploying
+
+Create your gigalixir application:
+```
+APP_NAME=$(gigalixir create)
+```
+
+Phoenix now requires a database, so let's create one:
+```
+gigalixir pg:create --free
+```
+
+Phoenix also needs this config:
+```
+gigalixir config:set PHX_HOST=${APP_NAME}.gigalixirapp.com PHX_SERVER=true
+```
+
+Now you can deploy:
+```
+git push -u gigalixir main
+```
+
+If you have any questions, don't hesitate to reach out to [Gigalixir support](mailto:support@gigalixir.com).
+
+
+## Phoenix
+
+### Development
 
 To start your Phoenix server:
 
@@ -9,7 +44,7 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
 
-## Learn more
+### Learn more
 
   * Official website: https://www.phoenixframework.org/
   * Guides: https://hexdocs.pm/phoenix/overview.html
