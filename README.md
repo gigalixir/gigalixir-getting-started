@@ -28,6 +28,8 @@ Now you can deploy:
 git push -u gigalixir main
 ```
 
+**NOTE:** If you plan to use this for a production environment, you will need to rotate the `signing_salt` in [config/config.exs] and [lib/gigalixir_getting_started_web/endpoint.ex].
+
 If you have any questions, don't hesitate to reach out to [Gigalixir support](mailto:support@gigalixir.com).
 
 
