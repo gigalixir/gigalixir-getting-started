@@ -8,13 +8,18 @@
 import Config
 
 config :gigalixir_getting_started,
-  ecto_repos: [GigalixirGettingStarted.Repo]
+  ecto_repos: [GigalixirGettingStarted.Repo],
+  generators: [timestamp_type: :utc_datetime]
 
 # Configures the endpoint
 config :gigalixir_getting_started, GigalixirGettingStartedWeb.Endpoint,
   url: [host: "localhost"],
+  adapter: Phoenix.Endpoint.Cowboy2Adapter,
   render_errors: [
-    formats: [html: GigalixirGettingStartedWeb.ErrorHTML, json: GigalixirGettingStartedWeb.ErrorJSON],
+    formats: [
+      html: GigalixirGettingStartedWeb.ErrorHTML,
+      json: GigalixirGettingStartedWeb.ErrorJSON
+    ],
     layout: false
   ],
   pubsub_server: GigalixirGettingStarted.PubSub,

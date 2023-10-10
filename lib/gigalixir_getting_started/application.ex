@@ -8,18 +8,16 @@ defmodule GigalixirGettingStarted.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      # Start the Telemetry supervisor
       GigalixirGettingStartedWeb.Telemetry,
-      # Start the Ecto repository
       GigalixirGettingStarted.Repo,
-      # Start the PubSub system
+      {DNSCluster, query: Application.get_env(:gigalixir_getting_started, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: GigalixirGettingStarted.PubSub},
-      # Start Finch
+      # Start the Finch HTTP client for sending emails
       {Finch, name: GigalixirGettingStarted.Finch},
-      # Start the Endpoint (http/https)
-      GigalixirGettingStartedWeb.Endpoint
       # Start a worker by calling: GigalixirGettingStarted.Worker.start_link(arg)
-      # {GigalixirGettingStarted.Worker, arg}
+      # {GigalixirGettingStarted.Worker, arg},
+      # Start to serve requests, typically the last entry
+      GigalixirGettingStartedWeb.Endpoint
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
