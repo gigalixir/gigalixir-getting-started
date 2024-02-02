@@ -25,8 +25,9 @@ config :gigalixir_getting_started, GigalixirGettingStartedWeb.Endpoint,
   debug_errors: true,
   secret_key_base: "w/7bFwMGu3Ma4PEW0ko+EMcMMENJqHz9HuVk5WknjNKTwe6wfaYp/MXbeq+tlNrP",
   watchers: [
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
-    tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
+    esbuild:
+      {Esbuild, :install_and_run, [:gigalixir_getting_started, ~w(--sourcemap=inline --watch)]},
+    tailwind: {Tailwind, :install_and_run, [:gigalixir_getting_started, ~w(--watch)]}
   ]
 
 # ## SSL Support
@@ -56,7 +57,7 @@ config :gigalixir_getting_started, GigalixirGettingStartedWeb.Endpoint,
 config :gigalixir_getting_started, GigalixirGettingStartedWeb.Endpoint,
   live_reload: [
     patterns: [
-      ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
+      ~r"priv/static/(?!uploads/).*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
       ~r"lib/gigalixir_getting_started_web/(controllers|live|components)/.*(ex|heex)$"
     ]

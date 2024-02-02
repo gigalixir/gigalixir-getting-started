@@ -14,7 +14,7 @@ config :gigalixir_getting_started,
 # Configures the endpoint
 config :gigalixir_getting_started, GigalixirGettingStartedWeb.Endpoint,
   url: [host: "localhost"],
-  adapter: Phoenix.Endpoint.Cowboy2Adapter,
+  adapter: Bandit.PhoenixAdapter,
   render_errors: [
     formats: [
       html: GigalixirGettingStartedWeb.ErrorHTML,
@@ -37,7 +37,7 @@ config :gigalixir_getting_started, GigalixirGettingStarted.Mailer, adapter: Swoo
 # Configure esbuild (the version is required)
 config :esbuild,
   version: "0.17.11",
-  default: [
+  gigalixir_getting_started: [
     args:
       ~w(js/app.js --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
     cd: Path.expand("../assets", __DIR__),
@@ -46,8 +46,8 @@ config :esbuild,
 
 # Configure tailwind (the version is required)
 config :tailwind,
-  version: "3.3.2",
-  default: [
+  version: "3.4.0",
+  gigalixir_getting_started: [
     args: ~w(
       --config=tailwind.config.js
       --input=css/app.css
