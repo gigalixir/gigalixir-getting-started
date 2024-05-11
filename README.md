@@ -10,17 +10,12 @@ This repo was built using the
 
 Create your gigalixir application:
 ```
-APP_NAME=$(gigalixir create)
+gigalixir create
 ```
 
 Phoenix now requires a database, so let's create one:
 ```
 gigalixir pg:create --free
-```
-
-Phoenix also needs this config:
-```
-gigalixir config:set PHX_HOST=${APP_NAME}.gigalixirapp.com PHX_SERVER=true
 ```
 
 Now you can deploy:
