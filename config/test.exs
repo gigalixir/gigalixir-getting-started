@@ -17,7 +17,7 @@ config :gigalixir_getting_started, GigalixirGettingStarted.Repo,
 # you can enable the server option below.
 config :gigalixir_getting_started, GigalixirGettingStartedWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
-  secret_key_base: "odR/2inAgLAHQoYSF69WtZzP3gLMWQikEa5UfY3cjCkesHCsxk/wq0bbSJRUxtPr",
+  secret_key_base: "odRf2inAgLAHQoYSF69WtZzP3gLMWQikEa5UfY3cjCkesHCsxkxwq0bbSJRUxtPr",
   server: false
 
 # In test we don't send emails

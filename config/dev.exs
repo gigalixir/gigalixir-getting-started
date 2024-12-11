@@ -23,7 +23,7 @@ config :gigalixir_getting_started, GigalixirGettingStartedWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "w/7bFwMGu3Ma4PEW0ko+EMcMMENJqHz9HuVk5WknjNKTwe6wfaYp/MXbeq+tlNrP",
+  secret_key_base: "wx7bFwMGu3Ma4PEW0ko6EMcMMENJqHz9HuVk5WknjNKTwe6wfaYpaMXbeqgtlNrP",
   watchers: [
     esbuild:
       {Esbuild, :install_and_run, [:gigalixir_getting_started, ~w(--sourcemap=inline --watch)]},
