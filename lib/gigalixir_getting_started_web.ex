@@ -42,8 +42,9 @@ defmodule GigalixirGettingStartedWeb do
         formats: [:html, :json],
         layouts: [html: GigalixirGettingStartedWeb.Layouts]
 
+      use Gettext, backend: GigalixirGettingStartedWeb.Gettext
+
       import Plug.Conn
-      import GigalixirGettingStartedWeb.Gettext
 
       unquote(verified_routes())
     end
@@ -81,11 +82,13 @@ defmodule GigalixirGettingStartedWeb do
 
   defp html_helpers do
     quote do
+      # Translation
+      use Gettext, backend: GigalixirGettingStartedWeb.Gettext
+
       # HTML escaping functionality
       import Phoenix.HTML
-      # Core UI components and translation
+      # Core UI components
       import GigalixirGettingStartedWeb.CoreComponents
-      import GigalixirGettingStartedWeb.Gettext
 
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS
