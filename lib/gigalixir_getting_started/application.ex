@@ -12,8 +12,6 @@ defmodule GigalixirGettingStarted.Application do
       GigalixirGettingStarted.Repo,
       {DNSCluster, query: Application.get_env(:gigalixir_getting_started, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: GigalixirGettingStarted.PubSub},
-      # Start the Finch HTTP client for sending emails
-      {Finch, name: GigalixirGettingStarted.Finch},
       # Start a worker by calling: GigalixirGettingStarted.Worker.start_link(arg)
       # {GigalixirGettingStarted.Worker, arg},
       # Start to serve requests, typically the last entry
