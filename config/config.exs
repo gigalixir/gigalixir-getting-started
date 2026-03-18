@@ -11,7 +11,7 @@ config :gigalixir_getting_started,
   ecto_repos: [GigalixirGettingStarted.Repo],
   generators: [timestamp_type: :utc_datetime]
 
-# Configures the endpoint
+# Configure the endpoint
 config :gigalixir_getting_started, GigalixirGettingStartedWeb.Endpoint,
   url: [host: "localhost"],
   adapter: Bandit.PhoenixAdapter,
@@ -25,7 +25,7 @@ config :gigalixir_getting_started, GigalixirGettingStartedWeb.Endpoint,
   pubsub_server: GigalixirGettingStarted.PubSub,
   live_view: [signing_salt: "58UDmctC"]
 
-# Configures the mailer
+# Configure the mailer
 #
 # By default it uses the "Local" adapter which stores the emails
 # locally. You can see the emails in your browser, at "/dev/mailbox".
@@ -46,7 +46,7 @@ config :esbuild,
 
 # Configure tailwind (the version is required)
 config :tailwind,
-  version: "4.1.7",
+  version: "4.1.12",
   gigalixir_getting_started: [
     args: ~w(
       --input=assets/css/app.css
@@ -55,7 +55,7 @@ config :tailwind,
     cd: Path.expand("..", __DIR__)
   ]
 
-# Configures Elixir's Logger
+# Configure Elixir's Logger
 config :logger, :default_formatter,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]

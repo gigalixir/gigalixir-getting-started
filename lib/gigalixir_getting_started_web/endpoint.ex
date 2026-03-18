@@ -24,7 +24,8 @@ defmodule GigalixirGettingStartedWeb.Endpoint do
     at: "/",
     from: :gigalixir_getting_started,
     gzip: not code_reloading?,
-    only: GigalixirGettingStartedWeb.static_paths()
+    only: GigalixirGettingStartedWeb.static_paths(),
+    raise_on_missing_only: code_reloading?
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
