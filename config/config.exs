@@ -25,6 +25,11 @@ config :gigalixir_getting_started, GigalixirGettingStartedWeb.Endpoint,
   pubsub_server: GigalixirGettingStarted.PubSub,
   live_view: [signing_salt: "58UDmctC"]
 
+# Configure LiveView
+config :phoenix_live_view,
+  # the attribute set on all root tags. Used for Phoenix.LiveView.ColocatedCSS.
+  root_tag_attribute: "phx-r"
+
 # Configure the mailer
 #
 # By default it uses the "Local" adapter which stores the emails
@@ -46,13 +51,14 @@ config :esbuild,
 
 # Configure tailwind (the version is required)
 config :tailwind,
-  version: "4.1.12",
+  version: "4.3.0",
   gigalixir_getting_started: [
     args: ~w(
       --input=assets/css/app.css
       --output=priv/static/assets/css/app.css
     ),
-    cd: Path.expand("..", __DIR__)
+    cd: Path.expand("..", __DIR__),
+    env: %{"NODE_PATH" => [Path.expand("../deps", __DIR__), Mix.Project.build_path()]}
   ]
 
 # Configure Elixir's Logger

@@ -62,7 +62,7 @@ if config_env() == :prod do
     http: [
       # Enable IPv6 and bind on all interfaces.
       # Set it to  {0, 0, 0, 0, 0, 0, 0, 1} for local network only access.
-      # See the documentation on https://hexdocs.pm/bandit/Bandit.html#t:options/0
+      # See the documentation on https://bandit.hexdocs.pm/Bandit.html#t:options/0
       # for details about using IPv6 vs IPv4 and loopback vs public addresses.
       ip: {0, 0, 0, 0, 0, 0, 0, 0}
     ],
@@ -90,7 +90,7 @@ if config_env() == :prod do
   # `:keyfile` and `:certfile` expect an absolute path to the key
   # and cert in disk or a relative path inside priv, for example
   # "priv/ssl/server.key". For all supported SSL configuration
-  # options, see https://hexdocs.pm/plug/Plug.SSL.html#configure/1
+  # options, see https://plug.hexdocs.pm/Plug.SSL.html#configure/1
   #
   # We also recommend setting `force_ssl` in your config/prod.exs,
   # ensuring no data is ever sent via http, always redirecting to https:
@@ -116,5 +116,5 @@ if config_env() == :prod do
   #
   #     config :swoosh, :api_client, Swoosh.ApiClient.Req
   #
-  # See https://hexdocs.pm/swoosh/Swoosh.html#module-installation for details.
+  # See https://swoosh.hexdocs.pm/Swoosh.html#module-installation for details.
 end
